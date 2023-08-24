@@ -28,7 +28,7 @@ export default function Navbar() {
               name="nav-title"
               className="text-2xl tracking-widest"
             >
-              Storefront
+              Concepteur
             </Link>
             <div className="flex items-center gap-6 child-hover:text-[#D9D9D9]">
               <Link href="/mens">Mens</Link>

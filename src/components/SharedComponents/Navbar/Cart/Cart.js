@@ -1,10 +1,15 @@
 "use client";
-import { CartItem } from "./CartItem";
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, removeItem } from "@/redux/slices/cart";
+import { addItem, removeItem, setCart, clearCart } from "@/redux/slices/cart";
+
+import { ENV } from "@/constants/environment";
+
+import { CartItem } from "./CartItem";
+
 export default function Cart() {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const numItems = useSelector((state) => state.cart.numItems);
   const cartContents = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
@@ -12,6 +17,20 @@ export default function Cart() {
   const toggleCartDisplay = () => {
     setIsActive(!isActive);
   };
+
+  // Retrieve Saved Cart from Local Storage
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart);
+      dispatch(setCart(parsedCart));
+    }
+  }, [dispatch]);
+
+  // Saves Current Cart to Local Storage on cartContents state being updated
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartContents));
+  }, [cartContents]);
 
   return (
     <>
@@ -32,11 +51,21 @@ export default function Cart() {
               name="scroll-area"
               className="border-2 h-full w-full border-red-500 overflow-y-scroll"
             >
-              <CartItem />
-              
+              <CartItem item={cartContents[0]} />
             </div>
           </div>
-          <div className="w-full h-[10vh]"></div>
+          <div className="w-full h-[10vh]">
+            {ENV === "dev" && (
+              <button
+                className="text-black"
+                onClick={() => {
+                  dispatch(clearCart());
+                }}
+              >
+                Clear Cart
+              </button>
+            )}
+          </div>
         </div>
       )}
     </>

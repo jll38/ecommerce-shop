@@ -17,11 +17,17 @@ export const cart = createSlice({
             state.numItems -= 1;
             state.items = state.items.filter(item => item !== action.payload);
         },
+        setCart: (state, action) => {
+            state.items = action.payload;
+        },
+        clearCart: (state) => {
+            state.items = [];
+        }
 
     },
     
 })
 
-export const { addItem, removeItem } = cart.actions;
+export const { addItem, removeItem, setCart, clearCart } = cart.actions;
 export default cart.reducer;
 
