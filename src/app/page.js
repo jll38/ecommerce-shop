@@ -29,7 +29,9 @@ export default function Home() {
         >
           ${products[0].price}
         </div>
-        <AddToCart />
+        <AddToCart item={products[0]} />
+        <AddToCart item={products[1]} />
+        <AddToCart item={products[3]} />
       </div>
       <div className="w-1/3 h-[600px] border"></div>
     </main>

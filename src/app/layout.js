@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
 import Navbar from "@/components/SharedComponents/Navbar/Navbar";
+import Footer from "@/components/SharedComponents/Footer/Footer";
+
 
 export const metadata = {
   title: "Create Next App",
@@ -16,6 +18,8 @@ export default function RootLayout({ children }) {
         <ReduxProvider>
           <Navbar />
           {children}
+          
+          <Footer/>
         </ReduxProvider>
       </body>
     </html>

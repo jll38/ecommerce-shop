@@ -8,7 +8,7 @@ export default function AddToCart({ item }) {
   return (
     <button 
     className="bg-[#e17055] hover:bg-[#fab1a0] px-4 py-2 text-lg transition-all duration-100"
-    onClick={() => {dispatch(addItem("Test"))}}>
+    onClick={() => {dispatch(addItem(item))}}>
       Add to Cart
     </button>
   );

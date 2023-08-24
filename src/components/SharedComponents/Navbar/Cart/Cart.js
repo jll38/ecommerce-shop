@@ -2,7 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, removeItem, setCart, clearCart } from "@/redux/slices/cart";
+import cart, {
+  addItem,
+  removeItem,
+  setCart,
+  clearCart,
+} from "@/redux/slices/cart";
 
 import { ENV } from "@/constants/environment";
 
@@ -41,7 +46,7 @@ export default function Cart() {
             name="cart-header"
             className="border-b-2 h-[10vh] w-full flex justify-between items-center px-12 text-[#2d3436]"
           >
-            <div className="text-xl">CART</div>
+            <div className="text-xl">CART | {numItems}</div>
             <button onClick={toggleCartDisplay} className="text-3xl">
               x
             </button>
@@ -49,9 +54,11 @@ export default function Cart() {
           <div name="cart-body" className="w-full h-[80vh] p-6">
             <div
               name="scroll-area"
-              className="border-2 h-full w-full border-red-500 overflow-y-scroll"
+              className=" h-full w-full overflow-y-scroll"
             >
-              <CartItem item={cartContents[0]} />
+              {cartContents.map((product, i) => {
+                return(<CartItem item={product} key={"cart-item-" + i} index={i}/>);
+              })}
             </div>
           </div>
           <div className="w-full h-[10vh]">
