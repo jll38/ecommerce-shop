@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Cart from "./Cart";
+import Cart from "./Cart/Cart";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <>
       {!isMobile && (
-        <nav className="bg-[#353535] h-[100px] flex text-white uppercase w-full items-center justify-between px-12 lg:px-24 text-md xl:text-lg">
+        <nav className="bg-[#2d3436] h-[100px] flex text-white uppercase w-full items-center justify-between px-12 lg:px-24 text-md xl:text-lg">
           <div className="flex justify-between gap-8">
             <Link
               href="/"
