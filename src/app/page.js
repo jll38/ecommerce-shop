@@ -10,7 +10,7 @@ import AddToCart from "@/components/SharedComponents/UI/Buttons/AddToCart";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#dfe6e9] gap-6 relative">
-      <div className="bg-[#ffeaa7] h-[70vh] w-full px-24 py-12 flex overflow-hidden">
+      <div className="bg-[#ffeaa7] h-[70vh] w-full px-[16vh] py-12 flex overflow-hidden">
         <div className="hidden lg:w-1/2 h-[95%] p-12 object-cover lg:flex items-center bg-[url('/assets/homepage/material.png')] bg-local bg-cover bg-norepeat mt-6">
           <img
             draggable="false"
