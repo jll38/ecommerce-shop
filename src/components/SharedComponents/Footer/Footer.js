@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2d3436] flex justify-between px-24 py-6 text-lg">
+    <footer className="bg-[#2d3436] flex justify-between px-24 py-6 text-lg text-[#dfe6e9]">
       <div className="text-3xl tracking-widest">Concepteur</div>
       <div className="w-1/3 flex justify-around">
         <div>

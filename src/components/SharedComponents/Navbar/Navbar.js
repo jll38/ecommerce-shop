@@ -21,16 +21,16 @@ export default function Navbar() {
   return (
     <>
       {!isMobile && (
-        <nav className="bg-[#2d3436] h-[100px] flex text-white uppercase w-full items-center justify-between px-12 lg:px-24 text-md xl:text-lg">
-          <div className="flex justify-between gap-8">
+        <nav className="bg-[#2d3436] h-[10vh] flex text-white uppercase w-full items-center justify-between px-12 lg:px-[16vh] text-[2vh]">
+          <div className="flex justify-between gap-[3vh]">
             <Link
               href="/"
               name="nav-title"
-              className="text-2xl tracking-widest"
+              className="text-[3vh] tracking-widest"
             >
               Concepteur
             </Link>
-            <div className="flex items-center gap-6 child-hover:text-[#D9D9D9]">
+            <div className="flex items-center gap-[4vh] child-hover:text-[#D9D9D9]">
               <Link href="/mens">Mens</Link>
               <Link href="/womens">Womens</Link>
               <Link href="/new-launch">New Drop</Link>
@@ -39,7 +39,7 @@ export default function Navbar() {
           </div>
           <div
             name="nav-right"
-            className="flex items-center justify-around w-1/4"
+            className="flex items-center justify-around w-[20vh]"
           >
             <div>Search</div>
             <Cart />
