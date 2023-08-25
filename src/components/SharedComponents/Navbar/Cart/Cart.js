@@ -50,6 +50,7 @@ export default function Cart() {
             <button onClick={toggleCartDisplay} className="text-3xl">
               x
             </button>
+            {ENV === "dev" && <button onClick={() => {dispatch(clearCart())}}>Clear Cart</button>}
           </div>
           <div name="cart-body" className="w-full h-[80vh] p-6">
             <div
@@ -57,21 +58,16 @@ export default function Cart() {
               className=" h-full w-full overflow-y-scroll"
             >
               {cartContents.map((product, i) => {
-                return(<CartItem item={product} key={"cart-item-" + i} index={i}/>);
+                return (
+                  <CartItem item={product} key={"cart-item-" + i} index={i} />
+                );
               })}
             </div>
           </div>
-          <div className="w-full h-[10vh]">
-            {ENV === "dev" && (
-              <button
-                className="text-black"
-                onClick={() => {
-                  dispatch(clearCart());
-                }}
-              >
-                Clear Cart
-              </button>
-            )}
+          <div className="w-full h-[10vh] border-t-2 p-6 pt-3">
+            <button className="bg-[#2d3436] w-full h-[50px] tracking-wider hover:tracking-widest transition-all duration-200">
+              Proceed to Checkout
+            </button>
           </div>
         </div>
       )}

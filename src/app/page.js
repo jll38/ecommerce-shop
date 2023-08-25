@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Provider } from "react-redux"; 
+import { Provider } from "react-redux";
 //Constant Imports
 import { products } from "@/constants/products";
 
@@ -8,32 +8,34 @@ import AddToCart from "@/components/SharedComponents/UI/Buttons/AddToCart";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen px-24 py-12 bg-[#dfe6e9] gap-6 relative">
-      <div className="w-1/3 h-[600px] border ">
-        <img
-          className="object-cover h-full"
-          src={products[0].img}
-          alt={products[0].name + " image"}
-        ></img>
+    <main className="min-h-screen bg-[#dfe6e9] gap-6 relative">
+      <div className="bg-[#ffeaa7] h-[70vh] w-full px-24 py-12 flex overflow-hidden">
+        <div className="hidden lg:w-1/2 h-[95%] p-12 object-cover lg:flex items-center bg-[url('/assets/homepage/material.png')] bg-local bg-cover bg-norepeat">
+          <img
+            draggable="false"
+            src="/assets/homepage/male-model.webp"
+            alt=" "
+            className=""
+          ></img>
+        </div>
+        <div className="w-full lg:w-1/2 border border-black p-12 flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
+            <div className="tracking-widest text-center font-semibold text-[#ff7675] drop-shadow-sm text-[3vh]">
+              CONCEPTEUR
+            </div>
+            <div className="text-center uppercase text-white font-bold text-[7vh] drop-shadow-md">
+              Summer <span className="text-[#ff7675]">Savings</span>
+            </div>
+            <div className="text-center text-[#2d3436]">Shop our lowest prices yet!</div>
+          </div>
+
+          <div className="flex w-1/2 mt-4 ">
+            <button className="w-1/2 bg-[#ff7675] hover:bg-[#fab1a0] py-4 font-semibold text-white transition-all duration-100">Shop Sale</button>
+          </div>
+        </div>
       </div>
-      <div className="w-1/3 h-[600px] border p-6">
-        <div name="collection-head" className="tracking-widest text-[#636e72]">
-          New Collection
-        </div>
-        <div name="featured-prod-name" className="text-3xl text-[#2d3436]">
-          {products[0].name}
-        </div>
-        <div
-          name="feature-prod-price"
-          className="tracking-widest text-[#636e72]"
-        >
-          ${products[0].price}
-        </div>
-        <AddToCart item={products[0]} />
-        <AddToCart item={products[1]} />
-        <AddToCart item={products[3]} />
-      </div>
-      <div className="w-1/3 h-[600px] border"></div>
+
+      <div className="px-24 py-12"></div>
     </main>
   );
 }
