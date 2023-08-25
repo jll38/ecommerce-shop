@@ -39,7 +39,7 @@ export default function Cart() {
 
   return (
     <>
-      <button onClick={toggleCartDisplay}>Cart</button>
+      <button onClick={toggleCartDisplay}><i className="fa-solid fa-cart-shopping hover:-rotate-45 transition-all duration-200"></i></button>
       {isActive && (
         <div className="top-0 right-0 fixed h-screen w-[47vh] bg-white z-10">
           <div

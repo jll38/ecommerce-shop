@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
 import Navbar from "@/components/SharedComponents/Navbar/Navbar";
@@ -14,12 +14,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <script
+        async
+        src="https://kit.fontawesome.com/a7908c27f8.js"
+        crossorigin="anonymous"
+        strategy="lazyOnload"
+      ></script>
+
       <body className={inter.className}>
         <ReduxProvider>
           <Navbar />
           {children}
-          
-          <Footer/>
+
+          <Footer />
         </ReduxProvider>
       </body>
     </html>
