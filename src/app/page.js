@@ -44,8 +44,54 @@ export default function Home() {
       </div>
 
       <div className="px-[16vh] py-[6vh] text-white">
-        <h3 className="font-bold text-[4vh] text-[#2d3436]">Trending</h3>
-        <hr className="h-[.5vh] w-[30vh] bg-[#2d3436] rounded-md"></hr>
+        <div className="flex justify-center gap-10 w-full mb-[4vh]">
+          <div className="border  h-[40vh] w-[80vh] bg-[#ff7675] overflow-hidden">
+            <div className="relative flex">
+              <div className="p-[8vh]">
+                <div className="uppercase font-extrabold text-[4vh] drop-shadow-lg">Shop Casual</div>
+                <div className="font-semibold drop-shadow-sm">Explore our collection of everyday fashion.</div>
+              </div>
+              <div className="absolute h-[40vh] w-[40vh] bg-[#fab1a0] rounded-[40vh]  -right-[16vh] top-[16vh]">
+              <img src="/assets/homepage/guy-suit.webp" alt=" "></img>
+              </div>
+            </div>
+          </div>
+          <div className="border h-[40vh] w-[80vh] bg-[#fdcb6e] overflow-hidden">
+            <div className="relative flex">
+            <div className="p-[8vh]">
+                <div className="uppercase font-extrabold text-[4vh] drop-shadow-lg">Shop Comfort</div>
+                <div className="font-semibold drop-shadow-sm">Start your journey into Comfort</div>
+              </div>
+              <div className="absolute h-[40vh] w-[40vh] bg-[#ffeaa7] rounded-[40vh]  -right-[16vh] top-[16vh]">
+              <img src="/assets/homepage/guy-suit.webp" alt=" "></img>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center gap-10 w-full mb-[4vh]">
+        <div className="border  h-[40vh] w-[80vh] bg-[#636e72] overflow-hidden">
+            <div className="relative flex">
+            <div className="p-[8vh]">
+                <div className="uppercase font-extrabold text-[4vh] drop-shadow-lg">Shop Formal</div>
+                <div className="font-semibold drop-shadow-sm">Shop our unique collection of formalwear</div>
+              </div>
+              <div className="absolute h-[40vh] w-[40vh] bg-[#b2bec3] rounded-[40vh]  -right-[16vh] top-[16vh]">
+                <img src="/assets/homepage/guy-suit.webp" alt=" "></img>
+              </div>
+            </div>
+          </div>
+          <div className="border h-[40vh] w-[80vh] bg-[#00cec9] overflow-hidden">
+            <div className="relative flex">
+            <div className="p-[8vh]">
+                <div className="uppercase font-extrabold text-[4vh] drop-shadow-lg">Accessories</div>
+                <div className="font-semibold drop-shadow-sm">Find that little extra flare</div>
+              </div>
+              <div className="absolute h-[40vh] w-[40vh] bg-[#81ecec] rounded-[40vh]  -right-[16vh] top-[16vh]">
+              <img src="/assets/homepage/guy-suit.webp" alt=" "></img>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

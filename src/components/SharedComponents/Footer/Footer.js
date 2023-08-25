@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2d3436]  px-24 py-6 text-lg text-[#dfe6e9]">
+    <footer className="bg-[#2d3436]  px-[16vh] py-6 text-[3vh] text-[#dfe6e9]">
       <div className="flex justify-between">
-        <div className="text-3xl tracking-widest">Concepteur</div>
+        <div className="text-[4vh] tracking-widest">Concepteur</div>
         <div className="w-1/3 flex justify-around">
           <div>
             <div className="mb-4 font-semibold">Follow Us!</div>
