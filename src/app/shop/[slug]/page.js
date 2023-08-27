@@ -7,8 +7,10 @@ export default function ShopItem({ params }) {
 
   return (
     <main className="flex min-h-screen px-[16vh] py-12 bg-[#dfe6e9] gap-6 relative">
-      <div className="border border-red-500 w-full flex gap-[10vh]">
-        <div className="h-full w-[60vh]  border border-blue-500"></div>
+      <div className="border border-red-500 w-full flex gap-[10vh] justify-center">
+        <div className="h-[50vh] w-[40vh]  border border-blue-500 object-cover">
+          <img className='w-full h-full' src={products[0].img}></img>
+        </div>
         <ItemInformation slug={slug}/>
       </div>
     </main>

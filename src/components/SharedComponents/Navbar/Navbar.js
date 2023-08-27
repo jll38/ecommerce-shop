@@ -21,12 +21,12 @@ export default function Navbar() {
   return (
     <>
       {!isMobile && (
-        <nav className="bg-[#2d3436] h-[10vh] flex text-white uppercase w-full items-center justify-between px-12 lg:px-[16vh] text-[2vh]">
+        <nav className="bg-[#2d3436] h-[8vh] flex text-white uppercase w-full items-center justify-between px-12 lg:px-[16vh] text-[1.5vh]">
           <div className="flex justify-between gap-[3vh]">
             <Link
               href="/"
               name="nav-title"
-              className="text-[3vh] tracking-widest"
+              className="text-[2.5vh] tracking-widest"
             >
               Concepteur
             </Link>
