@@ -11,25 +11,43 @@ export const cart = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
+      const product = action.payload;
       state.numItems += 1;
-      state.items.push(action.payload);
-    },
-    removeItem: (state, action) => {
-      const index = state.items.findIndex(
-        (item) => item.id === action.payload.id
-      );
+
+      const index = state.items.findIndex((item) => item.id === product.id);
+
       if (index !== -1) {
-        state.numItems -= 1;
-        state.items.splice(index, 1);
+        state.quantity[index] += 1;
+      } else {
+        state.items.push(product);
+        state.quantity.push(1);
+      }
+    },
+
+    removeItem: (state, action) => {
+      const id = action.payload.id;
+      const index = state.items.findIndex((item) => item.id === id);
+
+      if (index !== -1) {
+        if (state.quantity[index] > 1) {
+          state.quantity[index] -= 1;
+          state.numItems -= 1;
+        } else {
+          state.items.splice(index, 1);
+          state.quantity.splice(index, 1);
+          state.numItems -= 1;
+        }
       }
     },
     setCart: (state, action) => {
-      state.numItems = action.payload.length;
-      state.items = action.payload;
+      state.numItems = action.payload.parsedCart.length;
+      state.items = action.payload.parsedCart;
+      state.quantity = action.payload.parsedQuantity;
     },
     clearCart: (state) => {
       state.items = [];
       state.numItems = 0;
+      state.quantity = [];
     },
   },
 });

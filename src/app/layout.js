@@ -1,10 +1,11 @@
+import { DiscountButton } from "./../components/SharedComponents/UI/Buttons/DiscountButton";
+import { AddToCart } from "./../components/SharedComponents/UI/Buttons/AddToCart";
 import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
 import Navbar from "@/components/SharedComponents/Navbar/Navbar";
 import Footer from "@/components/SharedComponents/Footer/Footer";
-
 
 export const metadata = {
   title: "Concepteur Fashion",
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
         <ReduxProvider>
           <Navbar />
           {children}
-
+          <DiscountButton />
           <Footer />
         </ReduxProvider>
       </body>

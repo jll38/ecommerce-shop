@@ -17,6 +17,7 @@ export default function Cart() {
   const [isActive, setIsActive] = useState(false);
   const numItems = useSelector((state) => state.cart.numItems);
   const cartContents = useSelector((state) => state.cart.items);
+  const cartQuantity = useSelector((state) => state.cart.quantity);
   const dispatch = useDispatch();
 
   const toggleCartDisplay = () => {
@@ -26,20 +27,27 @@ export default function Cart() {
   // Retrieve Saved Cart from Local Storage
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
+    const savedCartQuantity = localStorage.getItem("cartQuantity");
     if (savedCart) {
       const parsedCart = JSON.parse(savedCart);
-      dispatch(setCart(parsedCart));
+      const parsedQuantity = JSON.parse(savedCartQuantity);
+      dispatch(
+        setCart({ parsedCart: parsedCart, parsedQuantity: parsedQuantity })
+      );
     }
   }, [dispatch]);
 
   // Saves Current Cart to Local Storage on cartContents state being updated
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartContents));
-  }, [cartContents]);
+    localStorage.setItem("cartQuantity", JSON.stringify(cartQuantity));
+  }, [cartContents, cartQuantity]);
 
   return (
     <>
-      <button onClick={toggleCartDisplay}><i className="fa-solid fa-cart-shopping hover:-rotate-45 transition-all duration-200"></i></button>
+      <button onClick={toggleCartDisplay}>
+        <i className="fa-solid fa-cart-shopping hover:-rotate-45 transition-all duration-200"></i>
+      </button>
       {isActive && (
         <div className="top-0 right-0 fixed h-screen w-[47vh] bg-white z-10">
           <div
@@ -50,7 +58,15 @@ export default function Cart() {
             <button onClick={toggleCartDisplay} className="text-3xl">
               x
             </button>
-            {ENV === "dev" && <button onClick={() => {dispatch(clearCart())}}>Clear Cart</button>}
+            {ENV === "dev" && (
+              <button
+                onClick={() => {
+                  dispatch(clearCart());
+                }}
+              >
+                Clear Cart
+              </button>
+            )}
           </div>
           <div name="cart-body" className="w-full h-[80vh] p-6">
             <div
